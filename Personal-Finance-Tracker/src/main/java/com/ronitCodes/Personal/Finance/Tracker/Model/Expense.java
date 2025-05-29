@@ -2,9 +2,11 @@ package com.ronitCodes.Personal.Finance.Tracker.Model;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name = "expenses")
-public class Expenses {
+public class Expense {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -15,16 +17,8 @@ public class Expenses {
     private String description;
 
     @Column(name = "amount")
-    private double amount;
+    private BigDecimal amount;
 
-    public Expenses(){
-
-    }
-
-    public Expenses(double amount, String description) {
-        this.amount = amount;
-        this.description = description;
-    }
 
     public long getId() {
         return id;
@@ -42,11 +36,11 @@ public class Expenses {
         this.description = description;
     }
 
-    public double getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 }
